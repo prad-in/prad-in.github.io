@@ -2,6 +2,11 @@
   --accent-color: #ff0088;
 }
 
+img.logo {
+  width: 50px;
+  height: 50px;
+}
+
 section [class^="container"] {
   padding: 4rem 2rem;
 }
