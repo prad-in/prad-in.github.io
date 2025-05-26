@@ -14,15 +14,11 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+    <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-lg">
         <a class="navbar-brand fw-bold" href="#"
-          ><img
-            src="/assets/prad-icon.png"
-            href="#"
-            class="logo"
-          />&nbsp;&nbsp;Pradnya Design Studio</a
-        >
+          ><img src="/assets/prad-icon.png" href="#" class="logo"
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -35,31 +31,26 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
+          <ul class="navbar-nav mx-auto justify-content-end">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#hero"
-                >Home</a
-              >
+              <a class="nav-link" href="#portfolio">Portfolio</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#skills">Skills</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
+              <a class="nav-link" href="#about">Contact</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="hero" id="hero">
+    <section class="hero shaded_bg" id="hero">
       <div class="container-lg">
         <div class="row align-items-center">
           <div class="col-sm-6">
-            <h1 class="display-2 fw-bold"></h1>
+            <h2 class="display-3 fw-bold">Hello, I'm Pradnya</h2>
             <p>
               A seasoned consultant and instructional designer with over a
               decade of experience across eLearning, UI/UX design, and web
@@ -68,9 +59,6 @@
               engaging, user-centered content for global clients across
               healthcare, legal, pharma, and finance sectors.
             </p>
-            <a class="btn btn-outline-dark btn-lg" href="#portfolio"
-              >Portfolio</a
-            >
           </div>
           <div class="col-sm-6 p-2 text-center">
             <img
@@ -83,7 +71,15 @@
       </div>
     </section>
 
-    <section class="skills" id="skills">
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <p class="display-6 fw-bold">Portfolio</p>
+        <p class="fw-bold mb-4">SELECTED PROJECTS</p>
+        <div class="row align-items-center" id="portfolio_row"></div>
+      </div>
+    </section>
+
+    <section class="skills shaded_bg" id="skills">
       <div class="container">
         <h2 class="display-5 fw-bold mb-4">Skills</h2>
         <div class="row" id="skill_row"></div>
@@ -92,10 +88,10 @@
 
     <section class="about" id="about">
       <div class="container">
-        <h2 class="display-5 fw-bold mb-4">About Me</h2>
+        <h2 class="display-5 fw-bold mb-4">Contact</h2>
         <img
           src="/assets/avataaars.svg"
-          class="img-thumbnail thumbsnails mb-4"
+          class="img-thumbnail thumbsnails2x mb-4"
           alt="About Me"
         />
         <p>
@@ -112,13 +108,6 @@
           Whether I'm designing a learning module or trying a new dish, I bring
           creativity, curiosity, and heart to everything I do.
         </p>
-      </div>
-    </section>
-
-    <section class="portfolio" id="portfolio">
-      <div class="container">
-        <h2 class="display-5 fw-bold mb-4">Portfolio</h2>
-        <div class="row row-cols-1 row-cols-md-3 g-4" id="portfolio_row"></div>
       </div>
     </section>
 

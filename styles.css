@@ -2,6 +2,10 @@
   --accent-color: #ff0088;
 }
 
+section.shaded_bg {
+  background-color: #ffecf9;
+}
+
 img.logo {
   width: 40px;
   height: 32px;
@@ -20,12 +24,12 @@ section [class^="container"] {
 }
 
 section:not(:first-of-type) {
-  text-align: center;
+  text-align: left;
 }
 
-section:nth-child(2n) {
+/* section:nth-child(2n-1) {
   background-color: #ffecf9;
-}
+} */
 
 .container a {
   color: #000000;
@@ -46,8 +50,17 @@ section .card,
 
 img.thumbsnails {
   padding-top: 5%;
-  width: 50%;
-  height: 40%;
+  width: 120px;
+  height: 100px;
+  align-self: center;
+  border: #ffffff;
+  cursor: pointer;
+}
+
+img.thumbsnails2x {
+  padding-top: 5%;
+  width: 240px;
+  height: 200px;
   align-self: center;
   border: #ffffff;
   cursor: pointer;
@@ -56,7 +69,7 @@ img.thumbsnails {
 /* NAVBAR */
 
 .navbar {
-  background-color: #ffffff;
+  background-color: #ffecf9;
 }
 
 .navbar-nav .nav-link {
@@ -106,10 +119,10 @@ section.skills i {
   background-color: var(--accent-color);
 }
 
-section .card {
-  max-width: 22rem;
+/* section .card {
   margin-inline: auto;
-}
+} */
+
 /* ABOUT */
 @media screen and (min-width: 1024px) {
   section.about .container,
@@ -119,14 +132,13 @@ section .card {
 }
 
 /* PROJECTS */
-section.portfolio .card {
-  max-width: 17rem;
+/* section.portfolio .card {
   text-align: left;
 }
 section.portfolio .card img {
   max-width: 70%;
   margin: 1rem auto;
-}
+} */
 
 /* TESTIMONIALS */
 

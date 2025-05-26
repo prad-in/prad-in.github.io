@@ -23,15 +23,15 @@ const update_skills = () => {
     },
   ];
   const skills_mapper = (skill, idx) =>
-    `<div class="col-lg col-sm-6 mt-4">
-            <div class="card">
+    `<div class="col-6 g-1">
+            <div class="card text-center border-0">
                 <img
                     src="${skill.path}"
-                    class="img-thumbnail thumbsnails"
+                    class="img-thumbnail thumbsnails2x"
                     alt="${skill.label}"
                 />
                 <div class="card-body">
-                <h5 class="card-title fw-bold">${skill.label}</h5>
+                <h4 class="card-title fw-bold">${skill.label}</h4>
                 <!-- <p class="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -48,64 +48,64 @@ const update_portfolio = () => {
   const portfolio_arr = [
     {
       id: 1,
-      label: "Nutrition eLearning",
+      tag: "e-Learning",
+      label: "Gamified app based on Nutrition",
       path: `${portfolio_img_base_path}/nutrition.png`,
-      desc: `This interactive eLearning module explores the vital role of gut microbiota in health and nutrition.`,
+      desc: `This interactive e-Learning module explores the vital role of gut microbiota in health and nutrition.`,
       url: `${portfolio_url_base_path}/nutrition/`,
     },
     {
       id: 2,
-      label: "Hubble Telescope eLearning",
+      tag: "e-Learning",
+      label: "Hubble Telescope Visualization",
       path: `${portfolio_img_base_path}/telescope.png`,
       desc: `This multimedia module offers an engaging look at the Hubble Space Telescope, combining 3D visuals and interactivity.`,
       url: `${portfolio_url_base_path}/hubble/`,
     },
     {
       id: 3,
-      label: "Cardiology eLearning",
+      tag: "e-Learning",
+      label: "Cardiology observations using GIFs",
       path: `${portfolio_img_base_path}/cardiogram-heart-rate-svgrepo-com.svg`,
       desc: `This module demonstrates the use of GIFs in Articulate Rise to visually present cardiology concepts using Adobe Photostock images and videos.`,
       url: `${portfolio_url_base_path}/cardio/`,
     },
     {
       id: 4,
-      label: "Solar Panel eLearning",
+      tag: "Infographic",
+      label: "How does a Solar Panel work?",
       path: `${portfolio_img_base_path}/solar-panel.png`,
       desc: `This visually engaging infographic illustrates how solar panels convert sunlight into electricity, simplifying complex processes.`,
       url: `${portfolio_img_base_path}/Solar_Panel_Infographic.png`,
     },
     {
       id: 5,
-      label: "UX Case Study - Wedding Checklist",
+      tag: "UX Design",
+      label: "Case Study - Wedding Checklist",
       path: `${portfolio_img_base_path}/wedding-checklist.png`,
       desc: `Dreams to Meet is a wedding planning app that helps users quickly create checklists and book vendors with ease. Designed with a user-friendly UX/UI.`,
       url: `${portfolio_img_base_path}/Wedding Ceremony Checklist App - Case Study.pdf`,
     },
   ];
   const portfolio_mapper = (portfolio, idx) =>
-    `<div class="col">
-            <div class="card h-100">
-              <div class="card-body text-center">
-                <h5 class="card-title fw-bold">${portfolio.label}</h5>
+    `<div class="col-12 align-self-center border border-danger-subtle rounded mb-4 p-4">
+        <a href="${portfolio.url}" target="_blank" class="">
+            <div class="row">
+                <div class="col align-self-center">
+                <h6 class="text-uppercase">${portfolio.tag}</h6>
+                <h4 class="fw-bold">${portfolio.label}</h4>
+                <p class="">${portfolio.desc}</p>
+                </div>
+                <div class="col text-center">
                 <img
-                  src="${portfolio.path}"
-                  class="img-thumbnail thumbsnails"
-                  alt="..."
+                    src="${portfolio.path}"
+                    class="img-thumbnail thumbsnails2x"
+                    alt="..."
                 />
-                <p class="card-text">
-                  ${portfolio.desc}
-                </p>
-              </div>
-              <div class="card-footer text-center bg-white">
-                <a
-                  href="${portfolio.url}"
-                  target="_blank"
-                  class="btn btn-outline-dark mb-2"
-                  >View Project</a
-                >
-              </div>
+                </div>
             </div>
-          </div>`;
+        </a>
+    </div>`;
   return updateDomHOF(portfolio_arr, portfolio_mapper);
 };
 
