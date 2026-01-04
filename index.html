@@ -1,202 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pradnya Design</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prad Design</title>
     <link rel="icon" type="image/x-icon" href="/assets/prad-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap"
       rel="stylesheet"
-      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
-      crossorigin="anonymous"
     />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
     <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
-  <body>
+  <body id="app">
+    <div class="blob-cont">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div
+      class="scroll-progress-bar"
+      :style="{ width: scrollProgress + '%' }"
+    ></div>
+
     <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container-lg">
-        <a class="navbar-brand fw-bold" href="#"
-          ><img src="/assets/prad-icon.png" href="#" class="logo"
-        /></a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+      <div class="container">
+        <a class="navbar-brand fs-4 fw-bold" href="#">
+          <i
+            class="bi bi-hexagon-fill me-2"
+            style="color: var(--color-pink)"
+          ></i>
+          Prad<span class="gradient-text"> Design.</span>
+        </a>
+        <div class="d-flex align-items-center gap-3 order-lg-3">
+          <button
+            class="theme-toggle"
+            @click="toggleTheme"
+            aria-label="Toggle Dark Mode"
+          >
+            <i
+              class="bi"
+              :class="theme === 'light' ? 'bi-moon-stars-fill' : 'bi-sun-fill'"
+            ></i>
+          </button>
+          <button
+            class="navbar-toggler"
+            type="button"
+            @click="toggleMenu"
+            aria-label="Toggle Menu"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          :class="{ 'show': isMenuOpen }"
         >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto justify-content-end">
+          <ul class="navbar-nav gap-4 align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="#portfolio">Portfolio</a>
+              <a
+                class="nav-link"
+                :class="{ 'active-link': activeSection === 'home' }"
+                href="#home"
+                @click="closeMenu"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#skills">Skills</a>
+              <a
+                class="nav-link"
+                :class="{ 'active-link': activeSection === 'approach' }"
+                href="#approach"
+                @click="closeMenu"
+                >Approach</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#about">Contact</a>
+              <a
+                class="nav-link"
+                :class="{ 'active-link': activeSection === 'tech' }"
+                href="#tech"
+                @click="closeMenu"
+                >Tech & AI</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                :class="{ 'active-link': activeSection === 'work' }"
+                href="#work"
+                @click="closeMenu"
+                >Work</a
+              >
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <section class="hero shaded_bg" id="hero">
-      <div class="container-lg">
+    <section id="home" class="min-vh-100 d-flex align-items-center pt-5">
+      <div class="container">
         <div class="row align-items-center">
-          <div class="col-sm-6">
-            <h2 class="display-3 fw-bold">Hello, I'm Pradnya</h2>
-            <p>
-              A seasoned consultant and instructional designer with over a
-              decade of experience across eLearning, UI/UX design, and web
-              development. Proven expertise in leading digital learning
-              projects, developing custom LMS platforms, and delivering
-              engaging, user-centered content for global clients across
-              healthcare, legal, pharma, and finance sectors.
-            </p>
+          <div class="col-lg-7">
+            <div class="glass-card p-5 border-0">
+              <span
+                class="fw-bold text-uppercase ls-2 mb-3 d-block"
+                style="color: var(--color-pink); font-size: 0.9rem"
+              >
+                <i class="bi bi-mortarboard-fill me-2"></i>Senior Instructional
+                Designer
+              </span>
+              <h1 class="display-3 fw-bold mb-3 lh-1">
+                Designing for <span class="gradient-text">Impact</span> &
+                <span class="gradient-text">Behavior Change.</span>
+              </h1>
+              <p class="lead text-muted mb-5">
+                I combine cognitive science with AI-driven media to build
+                learning experiences that stick.
+              </p>
+              <div class="d-flex gap-3">
+                <a
+                  href="#work"
+                  class="btn btn-primary text-white rounded-pill px-4 py-3 fw-bold"
+                  style="
+                    background: linear-gradient(
+                      45deg,
+                      var(--color-pink),
+                      var(--color-purple)
+                    );
+                    border: none;
+                    box-shadow: 0 10px 20px -10px var(--color-pink);
+                  "
+                >
+                  View Projects
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="col-sm-6 p-2 text-center">
+          <div class="col-lg-5 text-center mt-5 mt-lg-0">
             <img
-              src="/assets/undraw_working_remotely_re_6b3a.svg"
-              class="img-fluid"
-              alt=""
+              src="/assets/undraw_creative-woman_su2h.svg"
+              loading="lazy"
+              class="img-fluid w-100 rounded border border-5 border-white shadow-lg"
+              style="border-color: rgba(255, 255, 255, 0.3) !important"
+              alt="Profile Picture"
             />
           </div>
         </div>
       </div>
     </section>
 
-    <section class="portfolio" id="portfolio">
+    <section id="approach" class="section-padding">
       <div class="container">
-        <p class="display-6 fw-bold">Portfolio</p>
-        <p class="fw-bold mb-4">SELECTED PROJECTS</p>
-        <div class="row align-items-center" id="portfolio_row"></div>
-      </div>
-    </section>
-
-    <section class="skills shaded_bg" id="skills">
-      <div class="container">
-        <h2 class="display-5 fw-bold mb-4">Skills</h2>
-        <div class="row" id="skill_row"></div>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="container">
-        <h2 class="display-5 fw-bold mb-4">Contact</h2>
-        <img
-          src="/assets/avataaars.svg"
-          class="img-thumbnail thumbsnails2x mb-4"
-          alt="About Me"
-        />
-        <p>
-          I'm an instructional designer based in Madrid, where I live with my
-          husband and our adorable daughter. My work is not just a
-          profession—it's my passion. I thrive on creating engaging,
-          learner-centered experiences that make complex concepts accessible and
-          enjoyable.
-        </p>
-        <p>
-          Outside of work, I'm a trained Kathak dancer with a deep appreciation
-          for the arts. I love exploring different cultures and cuisines from
-          around the world, finding inspiration in every journey and flavor.
-          Whether I'm designing a learning module or trying a new dish, I bring
-          creativity, curiosity, and heart to everything I do.
-        </p>
-      </div>
-    </section>
-
-    <!-- <section class="testimonials" id="testimonials">
-      <div class="container">
-        <h2 class="display-5 fw-bold mb-4">Testimonials</h2>
-        <div
-          id="carouselExample"
-          class="carousel slide carousel-dark carousel-fade"
-        >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Phasellus mattis orci enim, ac auctor ex iaculis ut. Mauris ut
-                elit mi. Sed nec quam bibendum, congue augue ut, molestie
-                tellus. Fusce vel semper dolor."
-              </p>
-              <h5>John Doe</h5>
-            </div>
-            <div class="carousel-item">
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
-                at tortor a massa facilisis venenatis sit amet non libero. Etiam
-                vel sem venenatis tellus laoreet feugiat eu in mi."
-              </p>
-              <h5>June Doe</h5>
-            </div>
-            <div class="carousel-item">
-              <p>
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non
-                metus eu sem ultrices tincidunt sit amet ac nisi. In hac
-                habitasse platea dictumst. Aliquam pellentesque diam non eros
-                feugiat maximus."
-              </p>
-              <h5>Johnny Doe</h5>
-            </div>
-          </div>
-          <button
-            class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+        <div class="text-center mb-5">
+          <h5 class="gradient-text fw-bold text-uppercase mb-2">The Process</h5>
+          <h2 class="fw-bold display-5">Learner-Centric Design</h2>
+          <p class="text-muted mx-auto" style="max-width: 600px">
+            I utilize proven methodologies like ADDIE and SAM to ensure every
+            project meets measurable business goals.
+          </p>
         </div>
-      </div>
-    </section> -->
 
-    <!-- <section class="contact" id="contact">
-      <div class="container">
-        <h2 class="display-5 fw-bold mb-4">Contact Me</h2>
-        <div class="row">
-          <div class="col-sm-4 mt-4">
-            <a href="#"><i class="bi bi-envelope-fill"></i> jane@mymail.com</a>
-          </div>
-          <div class="col-sm-4 mt-4">
-            <div class="social-media">
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
+        <div class="row align-items-center mb-5">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div
+              class="glass-card p-5 text-center h-100 d-flex align-items-center justify-content-center flex-column"
+            >
+              <i
+                class="bi bi-diagram-3-fill fs-1 text-muted opacity-50 mb-3"
+              ></i>
+              <p class="text-muted small">
+                Visual Diagram of the Agile ADDIE Process
+              </p>
             </div>
           </div>
-          <div class="col-sm-4 mt-4">
-            <a href="#"><i class="bi bi-telephone-fill"></i> +1234567890</a>
+          <div class="col-lg-6">
+            <div class="row g-4">
+              <div v-for="(step, index) in steps" :key="index" class="col-12">
+                <div class="glass-card p-4 d-flex align-items-start reveal">
+                  <div
+                    class="me-3 p-3 rounded-circle"
+                    style="background: rgba(214, 51, 132, 0.1); flex-shrink: 0"
+                  >
+                    <i
+                      class="bi fs-4"
+                      :class="step.icon"
+                      style="color: var(--color-pink)"
+                    ></i>
+                  </div>
+                  <div>
+                    <h4 class="fw-bold mb-2">{{ step.title }}</h4>
+                    <p class="text-muted mb-0">{{ step.desc }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 
-    <footer class="text-center p-3 bg-body-tertiary border">
-      <div>&copy; 2025. Designed by Pradnya.</div>
+    <section id="tech" class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h5 class="gradient-text fw-bold text-uppercase mb-2">My Arsenal</h5>
+          <h2 class="fw-bold display-5">Tools & Cutting Edge Techniques</h2>
+          <p class="text-muted">
+            Leveraging the latest in AI and Learning Science.
+          </p>
+        </div>
+
+        <div class="row g-4 mb-5">
+          <div class="col-lg-12 mb-4 reveal">
+            <div
+              class="glass-card p-5 position-relative overflow-hidden"
+              style="border: 2px solid var(--color-purple)"
+            >
+              <div class="row align-items-center">
+                <div class="col-md-5 mb-4 mb-md-0">
+                  <span
+                    class="badge rounded-pill mb-3 px-3 py-2"
+                    style="background: var(--color-purple)"
+                    >AI & Innovation</span
+                  >
+                  <h3 class="fw-bold mb-3">AI-Enhanced Workflow</h3>
+                  <p class="text-muted mb-4">
+                    I integrate Generative AI to accelerate storyboarding,
+                    create immersive assets, and personalize learning pathways.
+                  </p>
+                </div>
+                <div class="col-md-7">
+                  <div class="row g-3">
+                    <div class="col-sm-6" v-for="tool in aiTools">
+                      <div
+                        class="p-3 rounded-4 h-100 d-flex align-items-center gap-3"
+                        style="background: rgba(111, 66, 193, 0.1)"
+                      >
+                        <i
+                          class="bi fs-2"
+                          :class="tool.icon"
+                          style="color: var(--color-purple)"
+                        ></i>
+                        <div>
+                          <h6 class="fw-bold mb-0">{{ tool.name }}</h6>
+                          <small class="text-muted">{{ tool.desc }}</small>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6 reveal" v-for="group in tools">
+            <div
+              class="glass-card p-4 h-100"
+              :style="{ borderTop: '4px solid ' + group.color }"
+            >
+              <h4
+                class="fw-bold mb-4 d-flex align-items-center"
+                :style="{ color: group.color }"
+              >
+                <i class="bi me-3 fs-3" :class="group.icon"></i>{{
+                group.category }}
+              </h4>
+              <div class="d-flex flex-wrap">
+                <div v-for="item in group.items" class="tool-chip">
+                  <i :class="item.icon" :style="{ color: group.color }"></i> {{
+                  item.name }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card p-5 reveal">
+          <h4 class="fw-bold mb-4 text-center">
+            Modern Learning Methodologies
+          </h4>
+          <div class="row g-4">
+            <div class="col-md-4" v-for="tech in techniques">
+              <div class="tech-card p-3 rounded-3 h-100">
+                <h5 class="fw-bold">{{ tech.title }}</h5>
+                <p class="text-muted small mb-0">{{ tech.desc }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h5 class="gradient-text fw-bold text-uppercase mb-2">Portfolio</h5>
+          <h2 class="fw-bold display-5">Recent Projects</h2>
+        </div>
+        <div class="row g-4">
+          <div
+            v-for="(project, idx) in projects"
+            :key="idx"
+            class="col-md-4 reveal"
+          >
+            <div
+              class="glass-card project-card h-100 overflow-hidden border-0"
+              style="cursor: pointer"
+              @click="openProject(project)"
+            >
+              <div class="position-relative overflow-hidden">
+                <img
+                  :src="project.image"
+                  loading="lazy"
+                  class="w-100 mt-4"
+                  style="height: 120px; object-fit: scale-down"
+                  alt="Project Thumbnail"
+                />
+                <span
+                  class="position-absolute top-0 end-0 m-3 badge bg-white text-dark shadow-sm d-flex align-items-center gap-1"
+                  style="
+                    backdrop-filter: blur(5px);
+                    opacity: 0.95;
+                    padding: 8px 12px;
+                  "
+                >
+                  <i
+                    class="bi me-1"
+                    :class="project.badgeIcon"
+                    :style="{ color: 'var(--color-' + project.theme + ')' }"
+                  ></i>
+                  {{ project.badge }}
+                </span>
+              </div>
+              <div class="card-body p-4">
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span
+                    v-for="tag in project.tags"
+                    class="project-tag"
+                    :style="{ background: 'rgba(var(--color-' + project.theme + '), 0.1)', color: 'var(--color-' + project.theme + ')', fontSize: '0.75rem', fontWeight: 'bold', padding: '5px 10px', borderRadius: '20px' }"
+                  >
+                    {{ tag }}
+                  </span>
+                </div>
+                <h4 class="fw-bold mb-2">{{ project.title }}</h4>
+                <p class="text-muted small mb-4">{{ project.desc }}</p>
+                <span
+                  class="fw-bold text-decoration-none d-inline-flex align-items-center"
+                  :style="{ color: 'var(--color-' + project.theme + ')' }"
+                >
+                  View Case Study <i class="bi bi-arrow-right ms-2"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="py-5 text-center border-top"
+      style="
+        border-color: var(--border-light) !important;
+        background-color: var(--nav-bg);
+      "
+    >
+      <div class="container">
+        <h4 class="fw-bold mb-3">Let's build better learning together.</h4>
+        <div class="mt-4">
+          <a href="#" class="text-muted mx-2 fs-4"
+            ><i class="bi bi-linkedin"></i
+          ></a>
+          <a href="#" class="text-muted mx-2 fs-4"
+            ><i class="bi bi-envelope-fill"></i
+          ></a>
+        </div>
+        <p class="small text-muted mt-5">
+          &copy; 2026 Prad Design. Built with Vue.js.
+        </p>
+      </div>
     </footer>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
-      crossorigin="anonymous"
-    ></script>
-    <script src="main.js"></script>
+
+    <button
+      class="back-to-top shadow-lg"
+      :class="{ 'show': showBackToTop }"
+      @click="scrollToTop"
+      aria-label="Back to Top"
+    >
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <div
+      class="custom-modal-overlay"
+      :class="{ 'open': showModal }"
+      @click.self="closeModal"
+    >
+      <div class="custom-modal">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+          <span class="badge rounded-pill" style="background: var(--color-teal)"
+            >Case Study</span
+          >
+          <button
+            @click="closeModal"
+            class="btn btn-sm btn-outline-secondary rounded-circle"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div v-if="selectedProject">
+          <img
+            :src="selectedProject.image"
+            class="img-fluid rounded-4 mb-4 w-100"
+            style="max-height: 120px; object-fit: scale-down"
+            alt="Project Details"
+          />
+          <h2 class="fw-bold mb-3">{{ selectedProject.title }}</h2>
+          <div class="d-flex flex-wrap gap-2 mb-4">
+            <span
+              v-for="tag in selectedProject.tags"
+              class="badge bg-light text-dark border"
+              >{{ tag }}</span
+            >
+          </div>
+          <h5 class="fw-bold">The Challenge</h5>
+          <p class="text-muted mb-4">
+            Detailed description of the problem statement would go here. Lorem
+            ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+          <h5 class="fw-bold">The Solution</h5>
+          <p class="text-muted mb-4">
+            How you solved it using your tools. Sed do eiusmod tempor incididunt
+            ut labore et dolore magna aliqua.
+          </p>
+          <h5 class="fw-bold">Results</h5>
+          <ul class="text-muted mb-4">
+            <li>Increased engagement by 25%</li>
+            <li>Reduced training time by 2 hours</li>
+          </ul>
+          <div class="d-grid">
+            <a
+              :href="`${selectedProject.url}`"
+              target="_blank"
+              class="btn btn-primary btn-lg rounded-pill"
+              style="background: var(--color-pink); border: none"
+            >
+              Launch Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
